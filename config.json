@@ -1,0 +1,19 @@
+{
+  "plugins": [
+    {
+      "plugin": "Cerberus",
+      "enabled": true,
+      "discordClient": "discord",
+      "autoBan": false,
+      "channelIDs": []
+    },
+    {
+      "plugin": "Molly",
+      "enabled": true,
+      "bmClient": "BattleMetrics",
+      "discordClient": "discord",
+      "autoBan": false,
+      "channelIDs": []
+    }
+  ]
+}
