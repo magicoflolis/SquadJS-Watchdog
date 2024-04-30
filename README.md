@@ -10,8 +10,6 @@
 [![GitHub License](https://img.shields.io/github/license/magicoflolis/SquadJS-Watchdog?style=flat-square)](https://github.com/magicoflolis/SquadJS-Watchdog/blob/main/LICENSE)
 [![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/magicoflolis/SquadJS-Watchdog?style=flat-square)](https://github.com/magicoflolis/SquadJS-Watchdog/issues)
 
-**UNDER CONSTRUCTION!**
-
 The most advanced content filter in SquadJS. For any issues, see [issue tracker](https://github.com/magicoflolis/SquadJS-Watchdog/issues).
 
 Watchdog is a plugin designed to filter any and all _unwanted_ content a player might enter in chat, squad name, or username. Currently there are **two** different editions.
