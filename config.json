@@ -4,16 +4,33 @@
       "plugin": "Cerberus",
       "enabled": true,
       "discordClient": "discord",
-      "autoBan": false,
-      "channelIDs": []
+      "action": "none",
+      "channelIDs": [],
+      "playerNames": {
+        "action": "none",
+        "alphabet": "abcdefghijklmnopqrstuvwxyz1234567890",
+        "extends": "",
+        "minimum": 0
+      },
+      "profanity": []
     },
     {
       "plugin": "Molly",
       "enabled": true,
       "bmClient": "BattleMetrics",
-      "discordClient": "discord",
-      "autoBan": false,
-      "channelIDs": []
+      "action": "none",
+      "Ban": {
+        "note": "Banned by Watchdog Molly",
+        "reason": "{{reason}} | {{timeLeft}}"
+      },
+      "channelIDs": [],
+      "playerNames": {
+        "action": "none",
+        "alphabet": "abcdefghijklmnopqrstuvwxyz1234567890",
+        "extends": "",
+        "minimum": 0
+      },
+      "profanity": []
     }
   ]
 }

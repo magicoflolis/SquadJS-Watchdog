@@ -2,6 +2,19 @@ import { readdir, stat } from 'node:fs/promises';
 import { URL } from 'url';
 import Logger from 'core/logger';
 
+/**
+ * @typedef {Function} JSPlugin
+ */
+
+/**
+ * @param {JSPlugin} structure - Plugin Class, Classes with `Base` in the name are **skipped!**
+ * @returns {boolean}
+ */
+const predicate = (structure) =>
+  typeof structure === 'function' &&
+  typeof structure.name === 'string' &&
+  !/Base/.test(structure.name);
+
 class Plugins {
   constructor() {
     this.pluginMap = new Map();
@@ -53,14 +66,10 @@ class Plugins {
 
     // Loop through all the files in the directory
     for (const file of files) {
-      // If the file does not end with .js, skip the file
-      if (!file.endsWith('.js')) {
-        continue;
-      }
-      // If the file is index.js, has base-plugin in the name, or has base-message in the name, skip the file
-      if (/index|base-(plugin|message)/.test(file)) {
-        continue;
-      }
+      // If the file is index.js, base plugin, or the file does not end with .js, skip the file
+			if (file === 'index.js' || /base[\w-]+\.js/.test(file) || !file.endsWith('.js')) {
+				continue;
+			}
 
       // Get the stats of the file
       const statFile = await stat(new URL(`${dir}/${file}`));
@@ -73,7 +82,8 @@ class Plugins {
 
       // Import the plugin dynamically from the file
       const Plugin = (await import(`${dir}/${file}`)).default;
-      plugins.push(Plugin);
+			
+      if (predicate(plugins)) plugins.push(Plugin);
     }
 
     return plugins;
